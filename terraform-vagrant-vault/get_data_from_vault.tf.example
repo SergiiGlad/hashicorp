@@ -1,0 +1,9 @@
+provider "vault" { }
+
+data "vault_generic_secret" "read" {  
+        path = "secret/foo"
+	}
+
+output "read" {
+	value = "${data.vault_generic_secret.read.data["login"]}"
+}
